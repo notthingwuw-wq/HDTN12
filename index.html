@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chủ đề 2: Tôi trưởng thành</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf8f1;--text:#1f2a44;--muted:#5b6478;--accent:#f26b3a;--a2:#0ea5a4;--green:#5aa845;--blue:#2563eb;--card:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0;height:100%;background:#efe9dc;overflow:hidden;font-family:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--text)}
+.stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center;background:var(--bg);box-shadow:0 20px 80px rgba(0,0,0,.15)}
+.slide{position:absolute;inset:0;display:none;overflow:hidden}
+.slide.active,.slide.entering,.slide.leaving{display:block}
+.bg{position:absolute;inset:0;background:radial-gradient(55% 55% at 8% 8%,rgba(242,107,58,.16),transparent),radial-gradient(50% 50% at 95% 92%,rgba(90,168,69,.2),transparent),radial-gradient(40% 40% at 90% 10%,rgba(14,165,164,.12),transparent),var(--bg)}
+.wm{position:absolute;right:-90px;bottom:-110px;width:760px;height:760px;opacity:.06;z-index:0;pointer-events:none;animation:drift 30s ease-in-out infinite;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%231f2a44' d='M50 95C50 60 30 45 8 42c0 28 18 48 42 53zM52 70c0-30 18-50 42-58 2 30-14 52-42 58z'/></svg>") no-repeat center/contain}
+@keyframes drift{50%{transform:translate(-24px,-18px) rotate(3deg)}}
+.c{position:absolute;inset:0;padding:64px 96px;z-index:1}
+.hd{display:flex;align-items:center;gap:32px;height:130px}
+.bd{display:flex;align-items:center;gap:0;background:linear-gradient(135deg,var(--c,#f26b3a),#f9a03f);color:#fff;border-radius:60px 14px 14px 60px;padding:6px 26px 6px 6px;font-weight:800;font-size:26px;box-shadow:0 10px 24px rgba(242,107,58,.3);flex:none}
+.bd b{width:62px;height:62px;border-radius:50%;background:#fff;color:var(--c,#f26b3a);display:grid;place-items:center;font-size:36px;margin-right:16px}
+h2{font-size:56px;line-height:1.15;margin:0;flex:1;color:var(--text);font-weight:800}
+.ico{width:130px;height:130px;border-radius:32px;background:#fff;box-shadow:0 16px 40px rgba(31,42,68,.14);display:grid;place-items:center;flex:none;color:var(--c,#f26b3a)}
+.ico svg{width:84px;height:84px;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+.body{position:absolute;left:96px;right:96px;top:230px;bottom:70px;display:flex;gap:36px}
+.col{flex:1;display:flex;flex-direction:column;gap:26px;min-width:0}
+.card{background:var(--card);border-radius:24px;box-shadow:0 18px 44px rgba(31,42,68,.1);padding:28px 34px;border-top:8px solid var(--c)}
+.card h3{margin:0 0 12px;font-size:36px;color:var(--c)}
+ul{margin:0;padding:0;list-style:none}
+li{font-size:30px;line-height:1.35;padding-left:34px;position:relative;margin:8px 0}
+li:before{content:"";position:absolute;left:4px;top:.55em;width:14px;height:14px;border-radius:50%;background:var(--c,#f26b3a)}
+.sit{position:relative;background:color-mix(in srgb,var(--c) 12%,#fff);border-radius:22px;padding:58px 34px 26px;box-shadow:0 14px 34px rgba(31,42,68,.1)}
+.sit i{position:absolute;left:0;top:0;background:var(--c);color:#fff;font-style:normal;font-weight:800;font-size:26px;padding:8px 28px;border-radius:22px 0 22px 0}
+.sit p{margin:0;font-size:27px;line-height:1.4}
+.sit p em{display:block;margin-top:10px;font-weight:600;color:var(--c)}
+.chip{background:#fff;border-radius:18px;padding:16px 26px;font-size:29px;line-height:1.3;box-shadow:0 8px 22px rgba(31,42,68,.09);border-left:8px solid var(--c);flex:1}
+.row{display:flex;gap:22px}.wrap{flex-wrap:wrap}
+.ask{font-size:32px;font-weight:600;margin:0;color:var(--text)}
+.ask b{color:var(--accent)}
+.vs{align-self:center;flex:none;width:92px;height:92px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:36px;display:grid;place-items:center;box-shadow:0 10px 26px rgba(242,107,58,.4)}
+.num{counter-reset:n}.num .chip{counter-increment:n;position:relative;padding-left:96px;display:flex;align-items:center}
+.num .chip:before{content:counter(n);position:absolute;left:20px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:var(--c);color:#fff;font-weight:800;font-size:28px;display:grid;place-items:center}
+.tl{display:flex;gap:26px;position:relative}
+.step{flex:1;background:#fff;border-radius:24px;padding:60px 26px 26px;box-shadow:0 18px 44px rgba(31,42,68,.1);position:relative;font-size:29px;line-height:1.35}
+.step b{position:absolute;left:26px;top:-26px;width:64px;height:64px;border-radius:50%;background:var(--c);color:#fff;font-size:34px;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.step h4{margin:0 0 8px;font-size:32px;color:var(--c)}
+table{border-collapse:separate;border-spacing:0;width:100%;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px rgba(31,42,68,.1)}
+th{background:var(--accent);color:#fff;font-size:30px;padding:14px}
+td{font-size:27px;padding:14px 22px;vertical-align:top;line-height:1.35}
+td:first-child{font-weight:800;width:240px;background:#fff4ec;color:var(--accent)}
+.chk{cursor:pointer;display:flex;align-items:center;gap:20px;transition:transform .2s}
+.chk:hover{transform:translateX(6px)}
+.chk:before{content:"✓";flex:none;width:46px;height:46px;border-radius:12px;border:3px solid var(--c);display:grid;place-items:center;color:transparent;font-size:30px;font-weight:800;transition:.25s}
+.chk.on:before{background:var(--c);color:#fff}
+.cover .bg{background:radial-gradient(60% 70% at 85% 50%,rgba(14,165,164,.22),transparent),radial-gradient(50% 50% at 10% 90%,rgba(90,168,69,.25),transparent),radial-gradient(50% 50% at 15% 10%,rgba(242,107,58,.2),transparent),#fff9ee}
+.cv{position:absolute;inset:0;display:flex;align-items:center;padding:0 110px;gap:70px}
+.cv .tx{flex:1}
+.tag{display:inline-block;background:linear-gradient(135deg,#f26b3a,#f9a03f);color:#fff;font-weight:800;font-size:34px;padding:10px 36px;border-radius:14px 50px 50px 14px;box-shadow:0 12px 26px rgba(242,107,58,.35)}
+.big{font-size:118px;line-height:1.02;font-weight:800;margin:26px 0 30px;color:var(--text)}
+.big span{color:var(--accent)}
+.goal{background:#fff;border-radius:24px;padding:20px 34px;box-shadow:0 18px 44px rgba(31,42,68,.1);border-left:10px solid var(--green)}
+.goal h3{margin:0;font-size:32px;color:var(--green)}
+.art{width:760px;height:760px;flex:none;filter:drop-shadow(0 24px 50px rgba(31,42,68,.2))}
+.art svg{width:100%;height:100%;animation:float 6s ease-in-out infinite}
+.thx{font-size:150px}
+.big.thx{font-size:150px}
+.nav{position:fixed;top:50%;transform:translateY(-50%);width:54px;height:54px;border-radius:50%;border:0;background:rgba(31,42,68,.14);color:#1f2a44;font-size:30px;cursor:pointer;backdrop-filter:blur(6px);transition:opacity .3s,background .2s;z-index:50}
+.nav:hover{background:rgba(31,42,68,.28)}.nav:disabled{opacity:.25;cursor:default}
+.nav:focus-visible,.fs:focus-visible{outline:3px solid var(--accent)}
+.prev{left:20px}.next{right:20px}
+.hud{position:fixed;right:24px;bottom:18px;font-size:16px;font-weight:600;color:#1f2a44;background:rgba(255,255,255,.7);padding:4px 14px;border-radius:20px;transition:opacity .3s;z-index:50}
+.fs{position:fixed;right:20px;top:calc(14px + env(safe-area-inset-top,0px));width:44px;height:44px;border-radius:12px;border:0;background:rgba(31,42,68,.14);color:#1f2a44;font-size:22px;cursor:pointer;z-index:50;transition:opacity .3s}
+.progress{position:fixed;left:0;right:0;bottom:0;height:5px;background:rgba(31,42,68,.1);z-index:50}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--green));transition:width .4s ease}
+body.idle .nav,body.idle .hud,body.idle .fs{opacity:0}
+[data-anim]{opacity:0}
+[data-step]{opacity:0;}
+[data-step].in{opacity:1;animation-duration:var(--dur,.5s);animation-delay:var(--delay,0s);animation-timing-function:cubic-bezier(.22,.8,.3,1);animation-fill-mode:both;animation-name:aUp;}
+[data-anim=stagger]{opacity:1}
+.f1{flex:1 1 0;min-width:0}.sit.f1 p{font-size:32px}.sit.f1 .ans{font-size:29px;padding:14px 20px}.sit.f1 i{font-size:28px}.body>.card{flex:1;min-width:0;align-self:flex-start}.body>.sit{min-width:0}.ans{margin-top:14px;background:#fff;border-radius:14px;padding:12px 18px;font-size:25px;line-height:1.35;border-left:6px solid var(--c)}
+.in[data-anim]{opacity:1;animation-duration:var(--dur,.7s);animation-delay:var(--delay,0s);animation-timing-function:cubic-bezier(.22,.8,.3,1);animation-fill-mode:both}
+.in[data-anim=fade-up]{animation-name:aUp}.in[data-anim=fade-right]{animation-name:aRight}.in[data-anim=zoom-in]{animation-name:aZoom}.in[data-anim=pop]{animation-name:aPop}.in[data-anim=stagger]{animation:none}
+@keyframes aUp{from{opacity:0;transform:translateY(40px)}}
+@keyframes aRight{from{opacity:0;transform:translateX(-60px)}}
+@keyframes aZoom{from{opacity:0;transform:scale(.85)}}
+@keyframes aPop{0%{opacity:0;transform:scale(.6)}70%{transform:scale(1.08)}100%{transform:scale(1)}}
+.t-fade.entering{animation:fI .5s both}.t-fade.leaving{animation:fO .5s both}
+.dir-next .t-slide.entering{animation:inR .6s cubic-bezier(.22,.8,.3,1) both}.dir-next .t-slide.leaving{animation:outL .6s cubic-bezier(.22,.8,.3,1) both}
+.dir-prev .t-slide.entering{animation:inL .6s cubic-bezier(.22,.8,.3,1) both}.dir-prev .t-slide.leaving{animation:outR .6s cubic-bezier(.22,.8,.3,1) both}
+.t-zoom.entering{animation:zI .6s cubic-bezier(.22,.8,.3,1) both}.t-zoom.leaving{animation:zO .6s both}
+.t-rise.entering{animation:rI .6s cubic-bezier(.22,.8,.3,1) both}.t-rise.leaving{animation:fO .5s both}
+@keyframes fI{from{opacity:0}}@keyframes fO{to{opacity:0}}
+@keyframes inR{from{transform:translateX(8%);opacity:0}}@keyframes outL{to{transform:translateX(-8%);opacity:0}}
+@keyframes inL{from{transform:translateX(-8%);opacity:0}}@keyframes outR{to{transform:translateX(8%);opacity:0}}
+@keyframes zI{from{transform:scale(.92);opacity:0}}@keyframes zO{to{transform:scale(1.06);opacity:0}}
+@keyframes rI{from{transform:translateY(8%);opacity:0}}
+@media (prefers-reduced-motion:reduce){[data-anim]{opacity:1!important;animation:none!important}[data-step]{opacity:1!important}.slide,.wm,.ico svg,.art svg{animation:none!important}}
+
+/* ===== Layout and readability improvements ===== */
+*,*::before,*::after{box-sizing:border-box}
+.c{padding:44px 72px}
+.hd{height:140px;gap:24px}
+.bd{font-size:28px}
+.bd b{width:66px;height:66px;font-size:38px}
+h2{font-size:64px;line-height:1.12;letter-spacing:-.5px}
+.ico{width:116px;height:116px;border-radius:28px}
+.ico svg{width:76px;height:76px}
+.body{left:72px;right:72px;top:210px;bottom:36px;gap:28px}
+.col{gap:20px}
+.card{padding:28px 30px;border-top-width:8px;display:flex;flex-direction:column}
+.card>ul{flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
+.card h3{font-size:42px;line-height:1.18;margin-bottom:16px}
+li{font-size:34px;line-height:1.3;padding-left:38px;margin:7px 0}
+li:before{width:15px;height:15px}
+.sit{padding:62px 32px 28px;display:flex;flex-direction:column;justify-content:center}
+.sit i{font-size:29px;padding:9px 28px}
+.sit p{font-size:30px;line-height:1.42}
+.sit.f1 p{font-size:34px}
+.sit.f1 i{font-size:29px}
+.ans{margin-top:16px;padding:16px 20px;font-size:29px;line-height:1.4}
+.sit.f1 .ans{font-size:31px;padding:16px 20px}
+.chip{padding:18px 24px;font-size:34px;line-height:1.32}
+.num .chip{padding-left:100px}
+.num .chip:before{width:58px;height:58px;font-size:31px}
+.ask{font-size:36px;line-height:1.3}
+.vs{width:88px;height:88px;font-size:38px}
+.tl{gap:22px}
+.step{padding:66px 28px 30px;font-size:32px;line-height:1.38;display:flex;flex-direction:column;justify-content:center}
+.step b{width:68px;height:68px;font-size:36px}
+.step h4{font-size:36px;line-height:1.2}
+table th{font-size:34px;padding:18px}
+table td{font-size:30px;padding:18px 22px;line-height:1.4}
+td:first-child{width:260px}
+.body>.card{align-self:stretch;min-height:0}
+.body>.sit{min-width:0;flex:1 1 0}
+.col>.card,.col>.sit{flex:1 1 auto;min-height:0}
+.cv{padding:0 84px;gap:48px}
+.tag{font-size:38px;padding:12px 36px}
+.big{font-size:132px;line-height:1.02;margin:22px 0 26px}
+.goal{padding:24px 32px}
+.goal h3{font-size:36px}
+.art{width:680px;height:680px}
+.thx{font-size:150px}
+.hud{font-size:19px;padding:6px 16px}
+.fs{width:48px;height:48px;font-size:24px}
+.nav{width:60px;height:60px;font-size:34px}
+
+/* Cards and columns now use the available slide height rather than bunching at the top. */
+.body>.col{min-height:0}
+@media (max-width:1500px){
+  .nav.prev{left:12px}.nav.next{right:12px}
+}
+@media (prefers-reduced-motion:reduce){[data-anim]{opacity:1!important;animation:none!important}[data-step]{opacity:1!important}.slide,.wm,.ico svg,.art svg{animation:none!important}}
+
+</style>
+</head>
+<body>
+<div class="deck"><div class="stage" id="stage"></div>
+<button class="nav prev" id="pv" aria-label="Slide trước">‹</button>
+<button class="nav next" id="nx" aria-label="Slide sau">›</button>
+<button class="fs" id="fs" aria-label="Toàn màn hình">⛶</button>
+<div class="hud"><span id="ct">1 / 1</span></div>
+<div class="progress"><i id="bar"></i></div></div>
+<script>
+const lucide = {
+  activity: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+  brain: '<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>',
+  handshake: '<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3h2l1 11"/><path d="m3 14 2 2a1 1 0 0 0 3-3"/><path d="m6 10 2 2a1 1 0 0 0 3-3"/><path d="m9 6 2 2a1 1 0 0 0 3-3"/>',
+  flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+  heart: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+  lightbulb: '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+  swords: '<polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" x2="9" y1="14" y2="18"/><line x1="7" x2="4" y1="17" y2="20"/><line x1="3" x2="5" y1="19" y2="21"/>',
+  clipboard: '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>',
+  clipboardList: '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>',
+  mic: '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>',
+  clapperboard: '<path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"/><path d="m6.2 5.3 3.1 3.9"/><path d="m12.4 3.4 3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>',
+  pencil: '<path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>',
+  dumbbell: '<path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/>',
+  chat: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+  list: '<line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/>',
+  medal: '<path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="m13 12 5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/><path d="M12 18v-2h-.5"/>',
+  target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  plant: '<path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/>',
+  swap: '<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
+  user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+  drama: '<path d="M10 11h.01"/><path d="M14 6h.01"/><path d="M18 6h.01"/><path d="M6.5 13.1h.01"/><path d="M22 5c0 9-4 12-6 12s-6-3-6-12c0-2 2-3 6-3s6 1 6 3"/><path d="M17.54 8.31a2.46 2.46 0 1 0 0-4.92 2.46 2.46 0 0 0 0 4.92"/><path d="M2 5c0 9 4 12 6 12s6-3 6-12c0-2-2-3-6-3s-6 1-6 3"/><path d="M6.46 8.31a2.46 2.46 0 1 0 0-4.92 2.46 2.46 0 0 0 0 4.92"/><path d="M8 21a2 2 0 0 0 2-2"/><path d="M16 21a2 2 0 0 0 2-2"/>'
+};
+const ic = (name) => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px">${lucide[name]||lucide.activity}</svg>`;
+const I = (name, size=48) => `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${lucide[name]||lucide.activity}</svg>`;
+
+const H=(n,t,i,c='#f26b3a')=>`<div class="hd" style="--c:${c}"><div class="bd"><span>HOẠT ĐỘNG</span><b>${n}</b></div><h2 data-anim="fade-up">${t}</h2><div class="ico" data-anim="zoom-in" data-delay="150">${I(i)}</div></div>`;
+const L=(a,c)=>`<ul data-anim="stagger" data-child="fade-right" data-stagger="100" data-delay="${c||400}">${a.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+const C=(t,a,c,d=300,startStep=0)=>{
+  let ul = '';
+  if (startStep > 0) {
+    ul = `<ul>${a.map((x,i)=>`<li data-step="${startStep+i}">${x}</li>`).join('')}</ul>`;
+  } else {
+    ul = L(a,d+150);
+  }
+  return `<div class="card" style="--c:${c}" data-anim="fade-up" data-delay="${d}"><h3>${t}</h3>${ul}</div>`;
+};
+const S=(l,t,c,q,d=300,a)=>`<div class="sit" style="--c:${c}" data-anim="fade-up" data-delay="${d}"><i>${l}</i><p>${t}${q?`<em>${q}</em>`:''}</p>${a?`<div class="ans">${a}</div>`:''}</div>`;
+const Q=(l,t,c,a,d)=>F(S(l,t,c,'',d,a));
+const F=s=>s.replace('class="sit"','class="sit f1"');
+const P=(a,c)=>a.map(x=>`<div class="chip" style="--c:${c}">${x}</div>`).join('');
+const B=x=>`<div class="body">${x}</div>`;
+const O='#f26b3a',G='#5aa845',T='#0ea5a4',U='#2563eb',V='#8b5cf6',R='#e11d48';
+
+const scene=(sky,sun)=>`<svg viewBox="0 0 760 760"><defs><clipPath id="cp"><circle cx="380" cy="380" r="360"/></clipPath><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${sky}"/><stop offset="1" stop-color="#fff3d6"/></linearGradient></defs><circle cx="380" cy="380" r="372" fill="#fff"/><g clip-path="url(#cp)"><rect width="760" height="760" fill="url(#sk)"/><circle cx="560" cy="210" r="${sun}" fill="#ffb84d"/><ellipse cx="200" cy="560" rx="420" ry="190" fill="#9fd08a"/><ellipse cx="600" cy="600" rx="400" ry="180" fill="#6fb85a"/><ellipse cx="380" cy="740" rx="520" ry="150" fill="#4f9a45"/><rect x="520" y="300" width="14" height="300" fill="#8a94a8"/><rect x="440" y="290" width="110" height="80" rx="6" fill="#fff" stroke="#f26b3a" stroke-width="8"/><path d="M460 372l12 50h40l12-50z" fill="none" stroke="#1f2a44" stroke-width="5"/><circle cx="360" cy="230" r="32" fill="#f26b3a"/><path d="M328 230h64M360 198v64" stroke="#8a3b14" stroke-width="3"/><path d="M200 640V500M200 560c0-40-30-60-70-60 0 40 30 66 70 60zM200 540c0-40 30-64 70-66 0 40-26 66-70 66z" fill="#2f7d32" stroke="#1f5c25" stroke-width="5"/><circle cx="260" cy="470" r="28" fill="#ffd7b5"/><path d="M220 640c0-50 18-80 40-80s40 30 40 80z" fill="#0ea5a4"/></g></svg>`;
+
+const sl = [
+/*1 Cover*/
+{cover:1,h:`<div class="cv"><div class="tx"><div class="tag" data-anim="fade-up">Chủ đề 2</div><div class="big" data-anim="fade-up" data-delay="150">TÔI<br><span>TRƯỞNG THÀNH</span></div><div class="goal" data-anim="fade-up" data-delay="300"><h3>${ic('target')} Mục tiêu</h3>${L(['Nhận diện sự trưởng thành của bản thân','Nhận diện phẩm chất ý chí và sự đam mê','Nhận diện khả năng tư duy độc lập và thích ứng với thay đổi'],550).replace('<ul','<ul style="--c:#5aa845"')}</div></div><div class="art" data-anim="zoom-in" data-delay="100" role="img" aria-label="Tranh minh hoạ cậu bé chơi bóng rổ giữa thiên nhiên">${scene('#bfe6ff',60)}</div></div>`},
+
+/*2 Định hướng*/
+{h:`<div class="hd" style="--c:${T}"><h2 data-anim="fade-up">Định hướng nội dung hoạt động trong chủ đề</h2><div class="ico" data-anim="zoom-in" style="--c:${T}">${I('target')}</div></div>${B(`<div class="col num" data-anim="stagger" data-child="fade-right" data-stagger="90" data-delay="300" style="--c:${T}">${P(['Xác định biểu hiện trưởng thành của cá nhân','Tìm hiểu phẩm chất ý chí và sự đam mê','Nhận diện đặc điểm người có tư duy độc lập','Chỉ ra việc làm để thích ứng với thay đổi','Thể hiện trưởng thành qua vai trò gia đình, xã hội'],T)}</div><div class="col num" data-anim="stagger" data-child="fade-right" data-stagger="90" data-delay="450" style="--c:${O};counter-reset:n 5">${P(['Giới thiệu đam mê và quá trình thực hiện','Thể hiện ý chí trong một số tình huống','Thể hiện tư duy độc lập khi giải quyết vấn đề','Thực hiện việc làm thích ứng với thay đổi','Lập và thực hiện kế hoạch rèn luyện'],O)}</div>`)}`},
+
+/*3 HĐ1*/
+{h:H(1,'Nhận diện biểu hiện trưởng thành','plant',G)+B(`${C('Thể chất',['Tăng chiều cao','Thay đổi cân nặng','Thay đổi giọng nói'],U,300,1)}${C('Tâm lí',['Có ý chí, kiên định mục tiêu','Có đam mê riêng, quyết tâm theo đuổi','Có khả năng tư duy độc lập','Linh hoạt thích ứng với thay đổi'],O,450,4)}${C('Xã hội',['Nhận biết quyền và trách nhiệm công dân','Chủ động thiết lập mối quan hệ xã hội','Làm việc thể hiện trách nhiệm trong gia đình','Biết tổ chức cuộc sống, công việc, quản lí bản thân'],G,600,8)}`)},
+
+/*4 HĐ2 Khánh - Câu hỏi*/
+{h:H(2,'Ý chí và đam mê của Khánh','flame',R)+B(`<div class="col" style="flex:1.1">${Q('Tình huống','Khánh mơ thành cầu thủ bóng rổ chuyên nghiệp: chơi từ lớp 8, vào CLB của trường, tìm đọc sách báo, xem video, học kĩ - chiến thuật, <b>tự tạo chỗ chơi cạnh nhà</b>, tập đều dù mệt và bận học cuối cấp.',U,'<b>Chỉ ra những biểu hiện ý chí và đam mê của Khánh.</b>',300)}</div><div class="art" style="width:500px;height:500px;color:${R};display:grid;place-items:center" data-anim="zoom-in" data-delay="500">${I('flame', 200)}</div>`)},
+
+/*5 HĐ2 Khánh - Trả lời*/
+{h:H(2,'Ý chí và đam mê của Khánh','flame',R)+B(`<div class="col" style="flex:1.1">${Q('Tình huống','Khánh mơ thành cầu thủ bóng rổ chuyên nghiệp: chơi từ lớp 8, vào CLB của trường, tìm đọc sách báo, xem video, học kĩ - chiến thuật, <b>tự tạo chỗ chơi cạnh nhà</b>, tập đều dù mệt và bận học cuối cấp.',U,'',300)}</div>${C('Biểu hiện ý chí',['Mục tiêu rõ: thành cầu thủ chuyên nghiệp','Kiên trì tập đều dù mệt, bận học','Tự chủ: tự tạo chỗ chơi, tranh thủ lúc rảnh'],R,450,1)}${C('Biểu hiện đam mê',['Chơi bóng rổ từ lớp 8, vào CLB','Tìm đọc, xem video, học kĩ - chiến thuật','Dành nhiều thời gian, công sức cho bóng rổ'],O,600,4)}`)},
+
+/*6 HĐ2 Chung*/
+{h:H(2,'Biểu hiện của phẩm chất ý chí và đam mê','flame',R)+B(`${C('Phẩm chất ý chí',['Xác định mục đích rõ ràng','Độc lập quyết định và hành động','Quyết đoán, kiên định, kiên trì vượt khó','Từ chối hành vi trái mục đích','Tự chủ hành vi, cảm xúc'],R,300,1)}${C('Sự đam mê',['Luôn nghĩ về điều yêu thích','Vui, hào hứng, thường xuyên nói về nó','Hào hứng trao đổi, bàn luận','Dành nhiều thời gian, công sức','Cố gắng, quyết tâm vượt khó'],O,450,6)}<div class="col" style="flex:.6;justify-content:center"><div class="chip" style="--c:${V};flex:none" data-anim="pop" data-delay="800">${ic('chat')} Chia sẻ biểu hiện ý chí và đam mê của em</div></div>`)},
+
+/*7 HĐ3 - Câu hỏi*/
+{h:H(3,'Đặc điểm của người có tư duy độc lập','lightbulb',V)+B(`<div class="col" style="flex:1.15">${Q('Ý kiến A','Người tư duy độc lập luôn <b>giữ ý kiến của mình</b> trong bất cứ hoàn cảnh nào.',R,'',300)}${Q('Ý kiến B','Người tư duy độc lập luôn có <b>cách nhìn riêng</b>, biết thu thập, phân tích thông tin đa chiều trước khi kết luận.',G,'',450)}<p class="ask" data-anim="fade-up" data-delay="600">${ic('swords')} <b>Tranh biện và đưa ví dụ minh chứng.</b></p></div><div class="art" style="width:500px;height:500px;color:${V};display:grid;place-items:center" data-anim="zoom-in" data-delay="500">${I('lightbulb', 200)}</div>`)},
+
+/*8 HĐ3 - Trả lời*/
+{h:H(3,'Đặc điểm của người có tư duy độc lập','lightbulb',V)+B(`<div class="col" style="flex:1.15">${Q('Ý kiến A','Người tư duy độc lập luôn <b>giữ ý kiến của mình</b> trong bất cứ hoàn cảnh nào.',R,'<b>Chưa đúng.</b> Tư duy độc lập không phải bảo thủ: vẫn biết lắng nghe và điều chỉnh khi ý kiến người khác hợp lí.',300)}${Q('Ý kiến B','Người tư duy độc lập luôn có <b>cách nhìn riêng</b>, biết thu thập, phân tích thông tin đa chiều trước khi kết luận.',G,'<b>Đúng.</b> Ví dụ: kiểm chứng tin trên mạng từ nhiều nguồn rồi mới đưa ra ý kiến.',450)}</div>${C('Biểu hiện của tư duy độc lập',['Không lệ thuộc ý kiến người khác','Biết lắng nghe ý kiến hợp lí','Có cách nhìn riêng từ quan sát, kinh nghiệm','Tự đánh giá, kiểm chứng thông tin','Bình tĩnh, không vội nghe theo','Thu thập thông tin từ nhiều nguồn','Phân tích dấu hiệu bản chất sự vật'],V,600,1).replace('class="card"','class="card" style="--c:'+V+';flex:1"')}`)},
+
+/*9 HĐ4 - Câu hỏi*/
+{h:H(4,'Nhận diện khả năng thích ứng với sự thay đổi','swap',T)+`<div class="body" style="flex-direction:column;gap:26px"><div class="row" data-anim="stagger" data-child="fade-up" data-stagger="120" data-delay="300"><div class="chip" style="--c:${T};flex:.5;font-weight:800">Em đã trải qua thay đổi nào?</div>${P(['Môi trường sống','Môi trường học tập','Quan hệ gia đình'],T)}</div><div class="row" style="flex:1;gap:36px">${Q('Tình huống: Quân','Chuyển trường mới, đường xa hơn, bố mẹ đi làm cả ngày. Quân <b>tìm hiểu đường đi</b>, sắp xếp thời gian và phân công em làm việc nhà, chủ động hỏi thầy cô - bạn bè, tự luyện nghe nói tiếng Anh, tham gia hoạt động tập thể.',U,'<b>Chỉ ra những biểu hiện thích ứng với sự thay đổi của Quân.</b>',500).replace('class="sit"','class="sit" style="--c:'+U+';flex:1"')}</div></div>`},
+
+/*10 HĐ4 - Trả lời*/
+{h:H(4,'Nhận diện khả năng thích ứng với sự thay đổi','swap',T)+`<div class="body" style="flex-direction:column;gap:26px"><div class="row" style="flex:1;gap:36px">${C('Quân đã thích ứng bằng cách',['Tìm hiểu đường đi để đến trường đúng giờ','Sắp xếp thời gian, phân công em làm việc nhà','Chủ động hỏi thầy cô, bạn bè khi chưa hiểu bài','Tự đọc, nghe video luyện tiếng Anh','Tham gia hoạt động tập thể để làm quen bạn'],U,300,1).replace('class="card"','class="card" style="--c:'+U+';flex:1"')}${C('Người thích ứng tốt',['Nhận biết điểm mới qua quan sát, giao tiếp','Bình tĩnh chấp nhận, sẵn sàng đổi thói quen','Dự đoán tình huống, chọn điều ưu tiên thay đổi','Chủ động học hỏi, kết bạn, tham gia cộng đồng','Suy nghĩ tích cực; đánh giá sự điều chỉnh'],T,450,6).replace('class="card"','class="card" style="--c:'+T+';flex:1"')}</div></div>`},
+
+/*11 HĐ5 - Câu hỏi*/
+{h:H(5,'Thể hiện sự trưởng thành trong cuộc sống','user',U)+`<div class="body" style="flex-direction:column"><div class="row" style="gap:36px;flex:1">${Q('Tình huống 1','Em vi phạm luật giao thông. Công an yêu cầu dừng xe và lập biên bản. <b>Em sẽ ứng xử thế nào?</b>',O,'',300).replace('class="sit"','class="sit" style="--c:'+O+';flex:1"')}${Q('Tình huống 2','Em nhận nhiệm vụ tổ chức hoạt động thiện nguyện, các bạn nghi ngờ khả năng điều hành của em. <b>Em làm gì?</b>',G,'',450).replace('class="sit"','class="sit" style="--c:'+G+';flex:1"')}</div><div class="row" style="flex:1;align-items:center;justify-content:center;color:${U};opacity:0.3" data-anim="zoom-in" data-delay="600">${I('user',200)}</div></div>`},
+
+/*12 HĐ5 - Trả lời*/
+{h:H(5,'Thể hiện sự trưởng thành trong cuộc sống','user',U)+`<div class="body" style="flex-direction:column"><div class="row" style="gap:36px;flex:1">${Q('Tình huống 1','Em vi phạm luật giao thông. Công an yêu cầu dừng xe và lập biên bản. <b>Em sẽ ứng xử thế nào?</b>',O,'Dừng xe, bình tĩnh nhận lỗi · xuất trình giấy tờ, hợp tác lập biên bản · chấp hành xử phạt, không cãi vã hay xin xỏ · rút kinh nghiệm, tuân thủ luật.',300).replace('class="sit"','class="sit" style="--c:'+O+';flex:1"')}${Q('Tình huống 2','Em nhận nhiệm vụ tổ chức hoạt động thiện nguyện, các bạn nghi ngờ khả năng điều hành của em. <b>Em làm gì?</b>',G,'Trao đổi cởi mở, lắng nghe lo lắng của bạn · lập kế hoạch rõ ràng, phân công phù hợp · chịu trách nhiệm, làm gương, kiên trì chứng tỏ năng lực.',450).replace('class="sit"','class="sit" style="--c:'+G+';flex:1"')}</div><p class="ask" data-anim="fade-up" data-delay="700">${ic('clipboardList')} Việc em dự định làm để thể hiện trưởng thành:</p><div class="row" data-anim="stagger" data-child="zoom-in" data-stagger="130" data-delay="800" style="flex:none">${P(['Chăm sóc, dạy em nhỏ','Tổ chức hoạt động tập thể lớp','Sinh nhật cho nhi đồng dịp hè'],U)}</div></div>`},
+
+/*13 HĐ6*/
+{h:H(6,'Giới thiệu đam mê của bản thân','star',V)+`<div class="body" style="flex-direction:column;gap:30px"><div class="row" style="align-items:center"><div class="chip" style="--c:${V};flex:.45;font-weight:800" data-anim="fade-right" data-delay="300">Hình thức</div>${P([ic('mic')+'Thuyết trình',ic('clapperboard')+'Đoạn phim ngắn'],V).replace(/class="chip"/g,'class="chip" data-anim="fade-up" data-delay="450"')}<div class="art" style="width:150px;height:110px;color:${V}" data-anim="pop" data-delay="600">${I('chat',80)}</div></div><div class="tl" style="margin-top:40px;flex:1"><div class="step" style="--c:${V}" data-anim="fade-up" data-delay="500"><b>1</b><h4>Lĩnh vực</h4>Em đam mê điều gì?</div><div class="step" style="--c:${O}" data-anim="fade-up" data-delay="620"><b>2</b><h4>Lí do</h4>Vì sao em yêu thích?</div><div class="step" style="--c:${G}" data-anim="fade-up" data-delay="740"><b>3</b><h4>Việc đã làm</h4>Đã và đang làm gì để thực hiện đam mê?</div><div class="step" style="--c:${U}" data-anim="fade-up" data-delay="860"><b>4</b><h4>Thay đổi</h4>Bản thân thay đổi thế nào?</div></div><div class="chip" style="--c:${T};flex:none" data-anim="fade-up" data-delay="1000">${ic('handshake')} Kết nối với những bạn cùng đam mê để chia sẻ, hỗ trợ nhau.</div></div>`},
+
+/*14 HĐ7 - Câu hỏi*/
+{h:H(7,'Rèn luyện ý chí của bản thân','flame',R)+`<div class="body" style="flex-direction:column"><div class="row" style="gap:36px;flex:1">${Q('Trường hợp 1','Tiến đặt mục tiêu thi tốt nghiệp môn Ngữ văn tối thiểu <b>7 điểm</b>, nhưng kết quả học hiện tại chưa như mong muốn.',R,'<b>Em sẽ thể hiện ý chí thế nào?</b>',300).replace('class="sit"','class="sit" style="--c:'+R+';flex:1"')}${Q('Trường hợp 2','Ngọc thuộc đội điền kinh của trường, lịch học dày, còn làm việc nhà. <b>Bố mẹ không đồng ý</b> cho bạn tham gia đội.',O,'<b>Em sẽ thể hiện ý chí thế nào?</b>',450).replace('class="sit"','class="sit" style="--c:'+O+';flex:1"')}</div><div class="row" style="flex:1;align-items:center;justify-content:center;color:${R};opacity:0.3" data-anim="zoom-in" data-delay="600">${I('flame',200)}</div></div>`},
+
+/*15 HĐ7 - Trả lời*/
+{h:H(7,'Rèn luyện ý chí của bản thân','flame',R)+`<div class="body" style="flex-direction:column"><div class="row" style="gap:36px;flex:1">${Q('Trường hợp 1','Tiến đặt mục tiêu thi tốt nghiệp môn Ngữ văn tối thiểu <b>7 điểm</b>, nhưng kết quả học hiện tại chưa như mong muốn.',R,'Phân tích nguyên nhân học yếu · lập kế hoạch ôn luyện theo tuần · kiên trì, nhờ thầy cô, bạn bè hỗ trợ · không nản khi điểm chưa cao.',300).replace('class="sit"','class="sit" style="--c:'+R+';flex:1"')}${Q('Trường hợp 2','Ngọc thuộc đội điền kinh của trường, lịch học dày, còn làm việc nhà. <b>Bố mẹ không đồng ý</b> cho bạn tham gia đội.',O,'Trao đổi, thuyết phục bố mẹ bằng cam kết · sắp xếp thời gian để học tốt, làm xong việc nhà · kiên trì duy trì tập luyện.',450).replace('class="sit"','class="sit" style="--c:'+O+';flex:1"')}</div><div class="row" data-anim="stagger" data-child="fade-up" data-stagger="130" data-delay="750" style="flex:none">${P([ic('clipboardList')+'Chọn một việc cần ý chí: đặt mục tiêu, lập kế hoạch, thực hiện',ic('dumbbell')+'Duy trì ý chí: mục tiêu nhỏ · nhắc mình lí do · nhờ người thân giám sát'],R)}</div></div>`},
+
+/*16 HĐ8 Tranh biện - Câu hỏi*/
+{h:H(8,'Tranh biện về tư duy độc lập','swords',V)+`<div class="body">${Q('Nhận định 1','Nên chọn nghề theo lời khuyên của bố mẹ hơn là theo sở thích, khả năng của bản thân.',O,'',300)}<div class="vs" data-anim="pop" data-delay="500">VS</div>${Q('Nhận định 2','Chỉ nên chơi với bạn giỏi hơn mình vì “gần mực thì đen, gần đèn thì rạng”.',G,'',450)}</div>`},
+
+/*17 HĐ8 Tranh biện - Trả lời*/
+{h:H(8,'Tranh biện về tư duy độc lập','swords',V)+`<div class="body">${Q('Nhận định 1','Nên chọn nghề theo lời khuyên của bố mẹ hơn là theo sở thích, khả năng của bản thân.',O,'<b>Chưa hợp lí.</b> Nên tham khảo ý kiến bố mẹ nhưng quyết định dựa trên sở thích, năng lực của mình và nhu cầu xã hội; trao đổi để bố mẹ hiểu và ủng hộ.',300)}<div class="vs" data-anim="pop" data-delay="500">VS</div>${Q('Nhận định 2','Chỉ nên chơi với bạn giỏi hơn mình vì “gần mực thì đen, gần đèn thì rạng”.',G,'<b>Chưa đúng.</b> Ai cũng có điểm mạnh để học hỏi. Chọn bạn tốt, biết giữ chính kiến và cùng nhau tiến bộ, không đánh giá bạn chỉ qua học lực.',450)}</div>`},
+
+/*18 HĐ8 Sắm vai - Câu hỏi*/
+{h:H(8,'Sắm vai: người có tư duy độc lập','user',V)+`<div class="body">${Q('Tình huống 1','Phúc bảo Nhân ích kỉ, đề nghị Thanh cắt đứt tình bạn với Nhân; nếu không, Phúc cũng chấm dứt bạn với Thanh.',R,'',300)}${Q('Tình huống 2','Hàng xóm giới thiệu Liên việc làm thêm qua mạng lương cao, bố mẹ thúc giục nhận lời; Liên đọc báo biết nhiều người bị lừa.',O,'',450)}${Q('Tình huống 3','Mai rủ Hùng vào CLB ngoại khoá hợp đam mê; Tuấn lại rủ Hùng đi làm thêm kiếm tiền mua đồ yêu thích.',G,'',600)}</div>`},
+
+/*19 HĐ8 Sắm vai - Trả lời*/
+{h:H(8,'Sắm vai: người có tư duy độc lập','user',V)+`<div class="body">${Q('Tình huống 1','Phúc bảo Nhân ích kỉ, đề nghị Thanh cắt đứt tình bạn với Nhân; nếu không, Phúc cũng chấm dứt bạn với Thanh.',R,'Thanh bình tĩnh tìm hiểu mâu thuẫn, giải thích với Phúc, không cắt đứt bạn chỉ vì áp lực; giữ quan hệ với cả hai.',300)}${Q('Tình huống 2','Hàng xóm giới thiệu Liên việc làm thêm qua mạng lương cao, bố mẹ thúc giục nhận lời; Liên đọc báo biết nhiều người bị lừa.',O,'Tìm hiểu kĩ nơi tuyển dụng, trao đổi với bố mẹ về rủi ro, không nhận lời vội và chọn việc đáng tin cậy.',450)}${Q('Tình huống 3','Mai rủ Hùng vào CLB ngoại khoá hợp đam mê; Tuấn lại rủ Hùng đi làm thêm kiếm tiền mua đồ yêu thích.',G,'Hùng cân nhắc lợi ích của cả hai, ưu tiên điều giúp phát triển đam mê và kĩ năng, tự quyết định và sắp xếp thời gian hợp lí.',600)}</div>`},
+
+/*20 HĐ9 Trường hợp - Câu hỏi*/
+{h:H(9,'Việc cần làm để thích ứng với thay đổi','swap',T)+`<div class="body">${Q('Trường hợp 1: Minh','Đổi nguyện vọng ngành học, phải học thêm một số môn; chỉ còn vài tháng đến kì thi.',U,'',300)}${Q('Trường hợp 2: Tùng','Ở với ông bà ốm đau, đi học xa hơn, internet nhà ông bà không ổn định.',T,'',450)}${Q('Trường hợp 3: Chiến','Chuẩn bị thi đại học, sẽ sống xa gia đình, môi trường mới khác THPT, phải tự làm mọi việc.',O,'',600)}</div>`},
+
+/*21 HĐ9 Trường hợp - Trả lời*/
+{h:H(9,'Việc cần làm để thích ứng với thay đổi','swap',T)+`<div class="body">${Q('Trường hợp 1: Minh','Đổi nguyện vọng ngành học, phải học thêm một số môn; chỉ còn vài tháng đến kì thi.',U,'Lập kế hoạch ôn các môn mới theo ưu tiên · nhờ thầy cô, bạn bè hướng dẫn · làm đề đều đặn, giữ sức khoẻ và tinh thần.',300)}${Q('Trường hợp 2: Tùng','Ở với ông bà ốm đau, đi học xa hơn, internet nhà ông bà không ổn định.',T,'Lên lịch đi học hợp lí · tải tài liệu trước khi cần, tìm nơi có mạng ổn định · phụ giúp chăm sóc ông bà.',450)}${Q('Trường hợp 3: Chiến','Chuẩn bị thi đại học, sẽ sống xa gia đình, môi trường mới khác THPT, phải tự làm mọi việc.',O,'Học nấu ăn, làm việc nhà, quản lí chi tiêu · tìm hiểu môi trường đại học trước · giữ liên lạc với gia đình.',600)}</div>`},
+
+/*22 HĐ9 Bảng*/
+{h:H(9,'Liệt kê thay đổi và cách thích ứng','list',T)+`<div class="body" style="flex-direction:column;gap:30px"><p class="ask" data-anim="fade-up" data-delay="300">${ic('pencil')} Em đang và sẽ có những thay đổi nào? Cần làm gì để thích ứng? <b>Ví dụ:</b></p><div data-anim="fade-up" data-delay="500"><table><tr><th>Thay đổi</th><th>Những việc cần làm để thích ứng</th></tr><tr><td>Sống xa gia đình</td><td>Tập nấu các món ăn đơn giản, đủ dinh dưỡng · Biết chăm sóc bản thân, dùng thuốc đúng khi ốm · Tập thể dục nâng cao sức khoẻ · Lập kế hoạch chi tiêu phù hợp · Biết sử dụng tài khoản ngân hàng</td></tr><tr><td>Lên đại học</td><td>Tìm hiểu trước chương trình, cách học và môi trường mới · Chủ động kết bạn, tham gia câu lạc bộ · Tự lập kế hoạch học tập</td></tr></table></div></div>`},
+
+/*23 HĐ10*/
+{h:H(10,'Lập và thực hiện kế hoạch rèn luyện bản thân','list',O)+`<div class="body" style="flex-direction:column;gap:20px"><p class="ask" data-anim="fade-up" data-delay="250" style="text-align:center">Rèn luyện: <b>ý chí · đam mê · tư duy độc lập · khả năng thích ứng</b></p><div class="tl" style="margin-top:40px;flex:1"><div class="step" style="--c:${O}" data-anim="fade-up" data-delay="350"><b>1</b><h4>Lập kế hoạch</h4>Xác định mục tiêu ngắn hạn, dài hạn và sắp xếp ưu tiên · Liệt kê vấn đề cần ưu tiên · Dự kiến kết quả theo từng khoảng thời gian.</div><div class="step" style="--c:${G}" data-anim="fade-up" data-delay="500"><b>2</b><h4>Thực hiện</h4>Thực hiện kế hoạch rèn luyện của bản thân.</div><div class="step" style="--c:${U}" data-anim="fade-up" data-delay="650"><b>3</b><h4>Ghi chép</h4>Theo dõi quá trình thực hiện và sự thay đổi của bản thân theo thời gian.</div><div class="step" style="--c:${V}" data-anim="fade-up" data-delay="800"><b>4</b><h4>Phân tích, báo cáo</h4>Đánh giá điểm mạnh, tồn tại · Tìm nguyên nhân chưa thành công · Điều chỉnh kế hoạch và tiếp tục.</div></div></div>`},
+
+/*24 Đánh giá*/
+{h:H('✓','Đánh giá cuối chủ đề','medal',O)+B(`<div class="col" data-anim="stagger" data-child="fade-right" data-stagger="90" data-delay="300">${P(['Nêu được biểu hiện, việc làm thể hiện sự trưởng thành','Trình bày được biểu hiện phẩm chất ý chí và đam mê','Chỉ ra được đặc điểm người có tư duy độc lập','Kể được hành động thể hiện khả năng thích ứng'],O).replace(/class="chip"/g,'class="chip chk" onclick="this.classList.toggle(\'on\')"')}</div><div class="col" data-anim="stagger" data-child="fade-right" data-stagger="90" data-delay="450">${P(['Giới thiệu được đam mê và quá trình thực hiện','Thể hiện được việc làm chứng tỏ trưởng thành','Thể hiện được ý chí và tư duy độc lập','Thực hiện kế hoạch rèn luyện và nhận xét kết quả'],G).replace(/class="chip"/g,'class="chip chk" onclick="this.classList.toggle(\'on\')"')}<div class="chip" style="--c:${V};flex:none;font-weight:800;text-align:center" data-anim="pop" data-delay="1000">Mức độ em đạt được: Đạt / Chưa đạt</div></div>`)},
+
+/*25 Cảm ơn*/
+{cover:1,h:`<div class="cv" style="justify-content:center;text-align:center;flex-direction:column;gap:10px"><div class="art" style="width:200px;height:200px;color:${R}" data-anim="pop">${I('heart',200)}</div><div class="big thx" data-anim="fade-up" data-delay="200">CẢM <span>ƠN</span></div><div class="goal" style="border-color:${O}" data-anim="fade-up" data-delay="400"><h3 style="color:${O};font-size:44px">Cảm ơn các bạn đã lắng nghe!</h3><p style="font-size:32px;margin:10px 0 0;color:var(--muted)">Mỗi ngày một bước, cùng trưởng thành</p></div></div>`}
+];
+
+const stage=document.getElementById('stage'),T4=['fade','slide','zoom','rise'];
+stage.innerHTML=sl.map((s,i)=>`<section class="slide t-${T4[i%4]}${s.cover?' cover':''}"><div class="bg"></div><div class="wm"></div><div class="c">${s.h}</div></section>`).join('');
+const els=[...stage.children],N=els.length;let cur=0,busy=false,currentStep=0;
+const $=id=>document.getElementById(id);
+
+function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform=`translate(-50%,-50%) scale(${s})`}
+addEventListener('resize',fit);fit();
+
+function play(sec){
+ sec.querySelectorAll('[data-anim=stagger]').forEach(p=>{[...p.children].forEach((c,i)=>{c.dataset.anim=p.dataset.child||'fade-up';c.dataset.delay=(+(p.dataset.delay||0))+i*(+(p.dataset.stagger||100))})});
+ sec.querySelectorAll('[data-anim]:not([data-anim=stagger])').forEach(el=>{el.style.setProperty('--delay',(el.dataset.delay||0)+'ms');el.style.setProperty('--dur',(el.dataset.duration||700)+'ms');el.classList.remove('in');void el.offsetWidth;el.classList.add('in')});
+}
+
+function revealSteps() {
+  els[cur].querySelectorAll('[data-step]').forEach(el => {
+    if (+el.dataset.step <= currentStep) {
+      if (!el.classList.contains('in')) {
+        el.style.setProperty('--delay', '0ms');
+        el.style.setProperty('--dur', '500ms');
+        el.classList.add('in');
+      }
+    } else {
+      el.classList.remove('in');
+    }
+  });
+}
+
+function ui(){
+  $('ct').textContent=(cur+1)+' / '+N;
+  $('bar').style.width=((cur+1)/N*100)+'%';
+  $('pv').disabled=cur===0&&currentStep===0;
+  $('nx').disabled=cur===N-1;
+  try{history.replaceState(null,'','#'+(cur+1))}catch(e){}
+}
+
+function go(n,first){
+ if(busy||n<0||n>=N||(n===cur&&!first))return;
+ const dir=n>=cur?'next':'prev',old=els[cur],nw=els[n];
+ if(first){nw.classList.add('active');cur=n;currentStep=0;play(nw);revealSteps();ui();return}
+ busy=true;stage.className='stage dir-'+dir;
+ old.classList.remove('active');old.classList.add('leaving');nw.classList.add('active','entering');cur=n;currentStep=0;play(nw);revealSteps();ui();
+ setTimeout(()=>{old.classList.remove('leaving');nw.classList.remove('entering');busy=false},620);
+}
+
+function next() {
+  const stepEls = [...els[cur].querySelectorAll('[data-step]')];
+  const maxStep = Math.max(...stepEls.map(e => +e.dataset.step), 0);
+  if (currentStep < maxStep) {
+    currentStep++;
+    revealSteps();
+    ui();
+  } else {
+    go(cur + 1);
+  }
+}
+
+function prev() {
+  if (currentStep > 0) {
+    currentStep--;
+    revealSteps();
+    ui();
+  } else {
+    go(cur - 1);
+  }
+}
+
+$('pv').onclick=prev;$('nx').onclick=next;
+$('fs').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(e){}};
+addEventListener('keydown',e=>{
+ if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')go(0);else if(e.key==='End')go(N-1);else if(e.key==='f'||e.key==='F')$('fs').onclick();
+});
+let sx=null;addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(sx===null)return;const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50){if(d<0)next();else prev()}sx=null});
+let idle;function wake(){document.body.classList.remove('idle');clearTimeout(idle);idle=setTimeout(()=>document.body.classList.add('idle'),2500)}
+['mousemove','touchstart','keydown'].forEach(ev=>addEventListener(ev,wake));wake();
+const h=parseInt((location.hash||'').slice(1));go(h>=1&&h<=N?h-1:0,true);
+addEventListener('hashchange',()=>{const k=parseInt(location.hash.slice(1));if(k>=1&&k<=N&&k-1!==cur)go(k-1)});
+</script>
+</body>
+</html>
